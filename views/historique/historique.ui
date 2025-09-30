@@ -1,0 +1,1088 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>900</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>ONDA - Historique et Rapports</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* --- Contenu Principal --- */
+#mainContentWidget {
+	background-color: #FFFFFF;
+	padding: 1px;
+}
+
+#titleLabel {
+	font-family: Source Sans Pro; 
+	font-size: 30px;
+	font-weight: 700;
+	color: #171A1F;
+}
+
+/* --- Cartes --- */
+.QFrame {
+	background-color: #FFFFFF;
+	border-radius: 24px;
+	border: 1px solid #E5E7EB;
+}
+
+.cardTitleLabel {
+	font-family: Open Sans;
+	font-size: 18px;
+	font-weight: 600;
+	color: #171A1F;
+	padding-bottom: 5px;
+}
+
+.dataLabel {
+	font-size: 14px;
+	font-family: Open Sans;
+	color: #565D6D;
+	font-weight: 500; 
+}
+
+.dataValue {
+	font-family: Open Sans;
+	font-size: 12px;
+	font-weight: 600;
+	color: #171A1F;
+}
+
+/* --- Graphes --- */
+#graphPlaceholder {
+	width: 1080px; 
+	height: 350px; 
+	background-color: #F9FAFB;
+	border-radius: 8px;
+	border: 1px dashed #D1D5DB;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout" stretch="0">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QWidget" name="mainContentWidget" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <property name="spacing">
+        <number>10</number>
+       </property>
+       <property name="leftMargin">
+        <number>15</number>
+       </property>
+       <property name="topMargin">
+        <number>20</number>
+       </property>
+       <property name="rightMargin">
+        <number>5</number>
+       </property>
+       <property name="bottomMargin">
+        <number>20</number>
+       </property>
+       <item>
+        <widget class="QFrame" name="headerFrame">
+         <property name="styleSheet">
+          <string notr="true">border: none;</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::Shape::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Shadow::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="titleLabel">
+            <property name="font">
+             <font>
+              <family>Source Sans Pro</family>
+              <pointsize>-1</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string>Historique et Rapports</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnExportPDF">
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Open Sans</family>
+              <pointsize>-1</pointsize>
+              <fontweight>Medium</fontweight>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">/* Button */
+
+QPushButton {
+	height: 40px; 
+	padding: 0 12px; 
+	font-family: Open Sans; 
+	font-size: 14px; 
+	font-weight: 500; 
+	color: #007BFF; 
+	background: #FFFFFF; 
+	opacity: 1; 
+	border: 1px solid #007BFF; 
+	border-radius: 8px; 
+}
+
+/* Hover */
+QPushButton:hover {
+	background: #0050A6; 
+	border: 1px solid #0050A6; 
+}
+/* Pressed */
+QPushButton:hover:active {
+	background: #004084; 
+	border: 1px solid #004084; 
+}
+</string>
+            </property>
+            <property name="text">
+             <string>Export PDF</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../assets/icons.qrc">
+              <normaloff>:/icons/icons/file-text.svg</normaloff>:/icons/icons/file-text.svg</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnExportExcel">
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Open Sans</family>
+              <pointsize>-1</pointsize>
+              <fontweight>Medium</fontweight>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">/* Button */
+QPushButton {
+	height: 40px; 
+	padding: 0 12px; 
+	font-family: Open Sans; 
+	font-size: 14px; 
+	font-weight: 500; 
+	color: #FFFFFF; 
+	background: #007BFF; 
+	opacity: 1; 
+	border: none; 
+	border-radius: 8px; 
+}
+
+/* Hover */
+QPushButton:hover {
+	background-color: #0050A6;
+}
+
+/* Pressed */
+QPushButton:hover:active {
+  background: #004084; 
+}
+</string>
+            </property>
+            <property name="text">
+             <string>Export Excel</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../assets/icons.qrc">
+              <normaloff>:/icons/icons/file-spreadsheet.svg</normaloff>:/icons/icons/file-spreadsheet.svg</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QScrollArea" name="scrollArea">
+         <property name="styleSheet">
+          <string notr="true">/* Optional: Pour un look plus propre, on enlève la bordure du ScrollArea */
+QScrollArea {
+	border: none;
+}</string>
+         </property>
+         <property name="horizontalScrollBarPolicy">
+          <enum>Qt::ScrollBarPolicy::ScrollBarAsNeeded</enum>
+         </property>
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents_6">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>-81</y>
+            <width>1168</width>
+            <height>891</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #FFFFFF;</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <property name="spacing">
+            <number>10</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QWidget" name="widget" native="true">
+             <layout class="QVBoxLayout" name="verticalLayout">
+              <property name="spacing">
+               <number>20</number>
+              </property>
+              <property name="leftMargin">
+               <number>5</number>
+              </property>
+              <property name="topMargin">
+               <number>5</number>
+              </property>
+              <property name="rightMargin">
+               <number>15</number>
+              </property>
+              <property name="bottomMargin">
+               <number>5</number>
+              </property>
+              <item>
+               <widget class="QFrame" name="frame">
+                <property name="frameShape">
+                 <enum>QFrame::Shape::NoFrame</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Shadow::Plain</enum>
+                </property>
+                <layout class="QGridLayout" name="gridLayout">
+                 <property name="leftMargin">
+                  <number>20</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>20</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>20</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>20</number>
+                 </property>
+                 <property name="horizontalSpacing">
+                  <number>20</number>
+                 </property>
+                 <property name="verticalSpacing">
+                  <number>10</number>
+                 </property>
+                 <item row="1" column="0">
+                  <layout class="QVBoxLayout" name="verticalLayout_12">
+                   <property name="spacing">
+                    <number>8</number>
+                   </property>
+                   <item>
+                    <widget class="QLabel" name="label_3">
+                     <property name="font">
+                      <font>
+                       <family>Open Sans</family>
+                       <pointsize>-1</pointsize>
+                       <fontweight>Medium</fontweight>
+                      </font>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">color: #495057;</string>
+                     </property>
+                     <property name="text">
+                      <string>Période</string>
+                     </property>
+                     <property name="class" stdset="0">
+                      <string>dataLabel</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QFrame" name="frame_4">
+                     <property name="styleSheet">
+                      <string notr="true">border: none;</string>
+                     </property>
+                     <property name="frameShape">
+                      <enum>QFrame::Shape::NoFrame</enum>
+                     </property>
+                     <property name="frameShadow">
+                      <enum>QFrame::Shadow::Plain</enum>
+                     </property>
+                     <layout class="QHBoxLayout" name="horizontalLayout_3">
+                      <property name="spacing">
+                       <number>10</number>
+                      </property>
+                      <property name="leftMargin">
+                       <number>0</number>
+                      </property>
+                      <property name="topMargin">
+                       <number>0</number>
+                      </property>
+                      <property name="rightMargin">
+                       <number>0</number>
+                      </property>
+                      <property name="bottomMargin">
+                       <number>0</number>
+                      </property>
+                      <item>
+                       <widget class="QLabel" name="label">
+                        <property name="styleSheet">
+                         <string notr="true"/>
+                        </property>
+                        <property name="text">
+                         <string>De</string>
+                        </property>
+                        <property name="class" stdset="0">
+                         <string>dataValue</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDateEdit" name="dateEdit">
+                        <property name="minimumSize">
+                         <size>
+                          <width>200</width>
+                          <height>35</height>
+                         </size>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QDateEdit {
+	padding-left: 12px; 
+	padding-right: 34px; 
+	font-family: Open Sans; 
+	font-size: 14px; 
+	font-weight: 400; 
+	background: #FFFFFF; 
+	border-radius: 6px; 
+	border-width: 1px; 
+	border-color: #DEE1E6; 
+	border-style: solid; 
+	outline: none; 
+}
+
+/* hover */
+QDateEdit:hover {
+  color: #171A1F; 
+}
+/* focused */
+QDateEdit:focused {
+  color: #171A1F; 
+}
+
+QDateEdit::down-arrow {
+	width: 16px; 
+	height: 16px; 
+    image: url(:/icons/icons/calendar-week.svg); /* Chemin vers l'icône */
+}
+QDateEdit::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 25px;
+    border-left-width: 1px;
+    border-left-color: #CED4DA;
+    border-left-style: solid;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+</string>
+                        </property>
+                        <property name="showGroupSeparator" stdset="0">
+                         <bool>false</bool>
+                        </property>
+                        <property name="calendarPopup">
+                         <bool>true</bool>
+                        </property>
+                        <property name="date">
+                         <date>
+                          <year>2024</year>
+                          <month>7</month>
+                          <day>1</day>
+                         </date>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLabel" name="label_11">
+                        <property name="text">
+                         <string>à</string>
+                        </property>
+                        <property name="class" stdset="0">
+                         <string>dataValue</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDateEdit" name="dateEdit_2">
+                        <property name="minimumSize">
+                         <size>
+                          <width>200</width>
+                          <height>35</height>
+                         </size>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QDateEdit {
+	padding-left: 12px; 
+	padding-right: 34px; 
+	font-family: Open Sans; 
+	font-size: 14px; 
+	font-weight: 400; 
+	background: #FFFFFF; 
+	border-radius: 6px; 
+	border-width: 1px; 
+	border-color: #DEE1E6; 
+	border-style: solid; 
+	outline: none; 
+}
+
+/* hover */
+QDateEdit:hover {
+  color: #171A1F; 
+}
+/* focused */
+QDateEdit:focused {
+  color: #171A1F; 
+}
+
+QDateEdit::down-arrow {
+	width: 16px; 
+	height: 16px; 
+    image: url(:/icons/icons/calendar-week.svg); /* Chemin vers l'icône */
+}
+QDateEdit::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 25px;
+    border-left-width: 1px;
+    border-left-color: #CED4DA;
+    border-left-style: solid;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+</string>
+                        </property>
+                        <property name="dateTime">
+                         <datetime>
+                          <hour>20</hour>
+                          <minute>0</minute>
+                          <second>0</second>
+                          <year>2025</year>
+                          <month>9</month>
+                          <day>20</day>
+                         </datetime>
+                        </property>
+                        <property name="calendarPopup">
+                         <bool>true</bool>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item row="1" column="2">
+                  <layout class="QVBoxLayout" name="verticalLayout_13">
+                   <property name="spacing">
+                    <number>8</number>
+                   </property>
+                   <item>
+                    <widget class="QLabel" name="label_5">
+                     <property name="font">
+                      <font>
+                       <family>Open Sans</family>
+                       <pointsize>-1</pointsize>
+                       <fontweight>Medium</fontweight>
+                      </font>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">color: #495057;</string>
+                     </property>
+                     <property name="text">
+                      <string>Équipement</string>
+                     </property>
+                     <property name="class" stdset="0">
+                      <string>dataLabel</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QComboBox" name="comboEquipement">
+                     <property name="minimumSize">
+                      <size>
+                       <width>200</width>
+                       <height>35</height>
+                      </size>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">QComboBox {
+	padding-left: 12px; 
+	padding-right: 34px; 
+	font-family: Open Sans; 
+	font-size: 14px; 
+	font-weight: 400; 
+	background: #FFFFFF; 
+	border-radius: 6px; 
+	border-width: 1px; 
+	border-color: #DEE1E6; 
+	border-style: solid; 
+	outline: none; 
+}
+
+/* hover */
+QComboBox:hover {
+	color: #171A1F; 
+}
+
+/* focused */
+QComboBox:focused {
+	color: #171A1F; 
+}
+
+QComboBox::down-arrow {
+	width: 16px; 
+	height: 16px; 
+	image: url(:/icons/icons/chevron-down.svg);
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 25px;
+    border-left-width: 1px;
+    border-left-color: #CED4DA;
+    border-left-style: solid;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+</string>
+                     </property>
+                     <item>
+                      <property name="text">
+                       <string>Tous</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Émetteur</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Récepteur</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Basculeur</string>
+                      </property>
+                     </item>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item row="1" column="4">
+                  <widget class="QPushButton" name="btnAppliquer">
+                   <property name="minimumSize">
+                    <size>
+                     <width>120</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <family>Open Sans</family>
+                     <pointsize>-1</pointsize>
+                     <fontweight>Medium</fontweight>
+                    </font>
+                   </property>
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">/* Button */
+QPushButton {
+	height: 40px; 
+	padding: 0 12px; 
+	font-family: Open Sans; 
+	font-size: 14px; 
+	font-weight: 500; 
+	color: #171A1F; 
+	background: #FFFFFF; 
+	opacity: 1; 
+	border-radius: 8px; 
+	border-width: 1px; 
+	border-color: #DEE1E6; 
+	border-style: solid; 
+}
+
+/* Hover */
+QPushButton:hover {
+	color: #FFFFFF;
+	background-color: #171A1F;
+	border-color: #FFFFFF;
+}
+
+/* Pressed */
+QPushButton:hover:active {
+	color: #FFFFFF;
+	background-color: #171A1F;
+	border-color: #FFFFFF;
+}
+</string>
+                   </property>
+                   <property name="text">
+                    <string>Appliquer</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="1">
+                  <layout class="QVBoxLayout" name="verticalLayout_10">
+                   <property name="spacing">
+                    <number>8</number>
+                   </property>
+                   <item>
+                    <widget class="QLabel" name="label_4">
+                     <property name="font">
+                      <font>
+                       <family>Open Sans</family>
+                       <pointsize>-1</pointsize>
+                       <fontweight>Medium</fontweight>
+                      </font>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">color: #495057;</string>
+                     </property>
+                     <property name="text">
+                      <string>Type d'événement</string>
+                     </property>
+                     <property name="class" stdset="0">
+                      <string>dataLabel</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QComboBox" name="comboTypeEvent">
+                     <property name="minimumSize">
+                      <size>
+                       <width>200</width>
+                       <height>35</height>
+                      </size>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">QComboBox {
+	padding-left: 12px; 
+	padding-right: 34px; 
+	font-family: Open Sans; 
+	font-size: 14px; 
+	font-weight: 400; 
+	background: #FFFFFF; 
+	border-radius: 6px; 
+	border-width: 1px; 
+	border-color: #DEE1E6; 
+	border-style: solid; 
+	outline: none; 
+}
+
+/* hover */
+QComboBox:hover {
+	color: #171A1F; 
+}
+
+/* focused */
+QComboBox:focused {
+	color: #171A1F; 
+}
+
+QComboBox::down-arrow {
+	width: 16px; 
+	height: 16px; 
+	image: url(:/icons/icons/chevron-down.svg);
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 25px;
+    border-left-width: 1px;
+    border-left-color: #CED4DA;
+    border-left-style: solid;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+</string>
+                     </property>
+                     <item>
+                      <property name="text">
+                       <string>Toutes</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Défaillance</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Anomalie</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Retour service</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Basculement manuel</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Configuration bascule automatique</string>
+                      </property>
+                     </item>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item row="1" column="3">
+                  <spacer name="horizontalSpacer_2">
+                   <property name="orientation">
+                    <enum>Qt::Orientation::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="label_2">
+                   <property name="text">
+                    <string>Filtres</string>
+                   </property>
+                   <property name="class" stdset="0">
+                    <string>cardTitleLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="frame_2">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>300</height>
+                 </size>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::Shape::NoFrame</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Shadow::Plain</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_4" stretch="0,0,1">
+                 <property name="spacing">
+                  <number>10</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>20</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>20</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>20</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>20</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_6">
+                   <property name="text">
+                    <string>Évolution Historique des Événements</string>
+                   </property>
+                   <property name="class" stdset="0">
+                    <string>cardTitleLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_9">
+                   <property name="text">
+                    <string>Nombre d'événements par mois</string>
+                   </property>
+                   <property name="class" stdset="0">
+                    <string>dataLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QWidget" name="graphPlaceholder" native="true">
+                   <layout class="QVBoxLayout" name="verticalLayout_6">
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="frame_3">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>400</height>
+                 </size>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::Shape::NoFrame</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Shadow::Plain</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_5">
+                 <property name="spacing">
+                  <number>10</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>20</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>20</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>20</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>20</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_10">
+                   <property name="text">
+                    <string>Détail des Événements</string>
+                   </property>
+                   <property name="class" stdset="0">
+                    <string>cardTitleLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QTableWidget" name="tableEvents">
+                   <property name="styleSheet">
+                    <string notr="true">QTableWidget {
+	width: 1083px; 
+	height: 329.5px; 
+    border: none;
+    gridline-color: #E9ECEF;
+	border-radius: 6px;
+}
+QHeaderView::section {
+	font-family: Open Sans; 
+	font-size: 14px;  
+	font-weight: 500; 
+	color: #565D6D;
+    background-color: #F8F9FA;
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid #DEE2E6;
+}
+QTableWidget::item {
+	font-family: Open Sans; 
+	font-size: 14px;  
+	font-weight: 400; 
+	color: #171A1F;
+    padding: 10px;
+}
+</string>
+                   </property>
+                   <property name="alternatingRowColors">
+                    <bool>true</bool>
+                   </property>
+                   <property name="selectionMode">
+                    <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+                   </property>
+                   <property name="showGrid">
+                    <bool>true</bool>
+                   </property>
+                   <property name="sortingEnabled">
+                    <bool>true</bool>
+                   </property>
+                   <attribute name="horizontalHeaderStretchLastSection">
+                    <bool>true</bool>
+                   </attribute>
+                   <attribute name="verticalHeaderVisible">
+                    <bool>false</bool>
+                   </attribute>
+                   <row/>
+                   <column>
+                    <property name="text">
+                     <string>Date</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>Heure</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>Équipement</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>Type</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>Gravité</string>
+                    </property>
+                   </column>
+                   <item row="0" column="0">
+                    <property name="text">
+                     <string>2024-07-20</string>
+                    </property>
+                   </item>
+                   <item row="0" column="1">
+                    <property name="text">
+                     <string>14:30</string>
+                    </property>
+                   </item>
+                   <item row="0" column="2">
+                    <property name="text">
+                     <string>Capteur #001</string>
+                    </property>
+                   </item>
+                   <item row="0" column="3">
+                    <property name="text">
+                     <string>Panne Système</string>
+                    </property>
+                   </item>
+                   <item row="0" column="4">
+                    <property name="text">
+                     <string>Critique</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../assets/icons.qrc"/>
+ </resources>
+ <connections/>
+</ui>

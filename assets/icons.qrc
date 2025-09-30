@@ -1,0 +1,36 @@
+<RCC>
+  <qresource prefix="/icons">
+    <file>icons/shield-x.svg</file>
+    <file>icons/shield-exclamation.svg</file>
+    <file>icons/xbox-x.svg</file>
+    <file>icons/git-pull-request1.svg</file>
+    <file>icons/logout.svg</file>
+    <file>icons/list-check.svg</file>
+    <file>icons/shield-check.svg</file>
+    <file>icons/alert-triangle_1.svg</file>
+    <file>icons/history_1.svg</file>
+    <file>icons/gauge.svg</file>
+    <file>icons/bulb.svg</file>
+    <file>icons/file-text.svg</file>
+    <file>icons/chevron-down.svg</file>
+    <file>icons/calendar-week.svg</file>
+    <file>icons/git-pull-request.svg</file>
+    <file>icons/file-spreadsheet.svg</file>
+    <file>icons/alert-triangle.svg</file>
+    <file>icons/circle-rectangle.svg</file>
+    <file>icons/exclamation-circle.svg</file>
+    <file>icons/layout-dashboard.svg</file>
+    <file>icons/git-fork.svg</file>
+    <file>icons/help-circle.svg</file>
+    <file>icons/history.svg</file>
+    <file>icons/microwave.svg</file>
+    <file>icons/ripple.svg</file>
+    <file>icons/settings.svg</file>
+    <file>icons/circle-check.svg</file>
+  </qresource>
+  <qresource prefix="images">
+    <file>logo_onda.png</file>
+    <file>images/gauge.png</file>
+    <file>logo_onda.ico</file>
+  </qresource>
+</RCC>

@@ -1,0 +1,17 @@
+# GUI / Qt
+PySide6==6.9.2
+
+# Modbus
+pymodbus==3.11.3
+
+# MySQL client (Oracle official connector)
+mysql-connector-python==9.4.0
+
+# Data / plotting / images / PDFs
+pandas==2.3.2
+matplotlib==3.10.6
+Pillow==11.3.0
+reportlab==4.4.4
+
+# Security
+bcrypt==5.0.0

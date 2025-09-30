@@ -1,0 +1,980 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Récepteur VHF</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* --- Contenu Principal --- */
+#mainContent {
+	background-color: #FFFFFF;
+	padding: 1px;
+}
+
+#titleLabel {
+	font-family: Source Sans Pro; 
+	font-size: 30px;
+	font-weight: 700;
+	color: #171A1F;
+}
+
+/* --- Cartes --- */
+.QFrame {
+	background-color: #FFFFFF;
+	border-radius: 24px;
+	border: 1px solid #E5E7EB;
+}
+
+.cardTitleLabel {
+	font-family: Source Sans Pro;
+	font-size: 20px;
+	font-weight: 700;
+	color: #171A1F;
+	padding-bottom: 5px;
+}
+
+.dataLabel {
+	font-size: 14px;
+	width: 114px;
+	font-family: Source Sans Pro;
+	color: #565D6D;
+	font-weight: 400; 
+}
+
+/* --- Graphes --- */
+#graphPlaceholder1, #graphPlaceholder2 {
+	border-radius: 8px;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout" stretch="0">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QWidget" name="mainContent" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0,0">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>20</number>
+       </property>
+       <property name="topMargin">
+        <number>10</number>
+       </property>
+       <property name="rightMargin">
+        <number>20</number>
+       </property>
+       <property name="bottomMargin">
+        <number>10</number>
+       </property>
+       <item>
+        <widget class="QWidget" name="header" native="true">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>67</height>
+          </size>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QLabel" name="titleLabel">
+            <property name="font">
+             <font>
+              <family>Source Sans Pro</family>
+              <pointsize>-1</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Récepteur VHF</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QScrollArea" name="scrollArea">
+         <property name="styleSheet">
+          <string notr="true">/* Optional: Pour un look plus propre, on enlève la bordure du ScrollArea */
+QScrollArea {
+	background-color: #FFFFFF;
+	border: none;
+}</string>
+         </property>
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>1160</width>
+            <height>726</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #FFFFFF;</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_8">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QFrame" name="alertFrame">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+                        QFrame {
+                            background-color: #f0ad4e;
+                            border: 1px solid #f0ad4e;
+                            border-radius: 8px;
+                            color: #856404;
+                        }
+                    </string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::Shape::NoFrame</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Shadow::Plain</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_3">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>10</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="label_2">
+                <property name="minimumSize">
+                 <size>
+                  <width>24</width>
+                  <height>24</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>24</width>
+                  <height>24</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border: none;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="pixmap">
+                 <pixmap>:/icons/icons/alert-triangle.svg</pixmap>
+                </property>
+                <property name="scaledContents">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="alertLabel">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>36</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>36</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>-1</pointsize>
+                  <fontweight>DemiBold</fontweight>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border: none;
+color: #FFFFFF;
+font-size: 14px;
+font-weight: 600;</string>
+                </property>
+                <property name="text">
+                 <string>Signal faible détecté sur la fréquence actuelle.</string>
+                </property>
+                <property name="indent">
+                 <number>10</number>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Policy::Preferred</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QWidget" name="dataGrid" native="true">
+             <layout class="QGridLayout" name="gridLayout" columnstretch="0,0">
+              <property name="leftMargin">
+               <number>8</number>
+              </property>
+              <property name="spacing">
+               <number>10</number>
+              </property>
+              <item row="0" column="0">
+               <widget class="QFrame" name="infoFrame">
+                <property name="sizeIncrement">
+                 <size>
+                  <width>1</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::Shape::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Shadow::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_4">
+                 <property name="spacing">
+                  <number>6</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>20</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>13</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>20</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>20</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="infoTitleLabel">
+                   <property name="font">
+                    <font>
+                     <family>Source Sans Pro</family>
+                     <pointsize>-1</pointsize>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Informations Techniques</string>
+                   </property>
+                   <property name="class" stdset="0">
+                    <string>cardTitleLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="infoSubtitleLabel">
+                   <property name="styleSheet">
+                    <string notr="true">font-family: Roboto; 
+color: #565D6D;
+font-weight: 400;  
+ </string>
+                   </property>
+                   <property name="text">
+                    <string>Statut actuel du récepteur VHF</string>
+                   </property>
+                   <property name="class" stdset="0">
+                    <string>dataLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <layout class="QGridLayout" name="gridLayout_2">
+                   <item row="0" column="1">
+                    <widget class="QLabel" name="powerLabel">
+                     <property name="text">
+                      <string>Puissance du signal reçu</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="1">
+                    <widget class="QLabel" name="squelchValueLabel">
+                     <property name="font">
+                      <font>
+                       <family>Source Sans Pro</family>
+                       <pointsize>-1</pointsize>
+                       <fontweight>DemiBold</fontweight>
+                      </font>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">font-family: Source Sans Pro; 
+font-size: 18px; 
+font-weight: 600; 
+color: #171A1F; </string>
+                     </property>
+                     <property name="text">
+                      <string>5</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="1">
+                    <widget class="QLabel" name="alimLabel">
+                     <property name="text">
+                      <string>Tension d'alimentation</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="0">
+                    <widget class="QLabel" name="tmpLabel">
+                     <property name="text">
+                      <string>Température interne</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="freqLabel">
+                     <property name="text">
+                      <string>Fréquence de réception</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QLabel" name="powerValueLabel">
+                     <property name="font">
+                      <font>
+                       <family>Source Sans Pro</family>
+                       <pointsize>-1</pointsize>
+                       <fontweight>DemiBold</fontweight>
+                      </font>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">font-family: Source Sans Pro; 
+font-size: 18px; 
+font-weight: 600; 
+color: #171A1F; </string>
+                     </property>
+                     <property name="text">
+                      <string>-85 dBm</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="freqValueLabel">
+                     <property name="font">
+                      <font>
+                       <family>Source Sans Pro</family>
+                       <pointsize>-1</pointsize>
+                       <fontweight>DemiBold</fontweight>
+                      </font>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">font-family: Source Sans Pro; 
+font-size: 18px; 
+font-weight: 600; 
+color: #171A1F; </string>
+                     </property>
+                     <property name="text">
+                      <string>146.520 MHz</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="0">
+                    <widget class="QLabel" name="tmpValueLabel">
+                     <property name="styleSheet">
+                      <string notr="true">font-family: Source Sans Pro; 
+font-size: 18px; 
+font-weight: 600; 
+color: #171A1F; </string>
+                     </property>
+                     <property name="text">
+                      <string>39.9 °C</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="1">
+                    <widget class="QLabel" name="alimValueLabel">
+                     <property name="styleSheet">
+                      <string notr="true">font-family: Source Sans Pro; 
+font-size: 18px; 
+font-weight: 600; 
+color: #171A1F; </string>
+                     </property>
+                     <property name="text">
+                      <string>24. 1 V</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="noiseLabel">
+                     <property name="text">
+                      <string>Taux de bruit</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="0">
+                    <widget class="QLabel" name="noiseValueLabel">
+                     <property name="font">
+                      <font>
+                       <family>Source Sans Pro</family>
+                       <pointsize>-1</pointsize>
+                       <fontweight>DemiBold</fontweight>
+                      </font>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">font-family: Source Sans Pro; 
+font-size: 18px; 
+font-weight: 600; 
+color: #171A1F; </string>
+                     </property>
+                     <property name="text">
+                      <string>2.3 %</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1">
+                    <widget class="QLabel" name="squelchLabel">
+                     <property name="text">
+                      <string>État du Squelch</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <spacer name="verticalSpacer_4">
+                   <property name="orientation">
+                    <enum>Qt::Orientation::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QFrame" name="snrFrame">
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::Shape::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Shadow::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_5" stretch="0,0,1">
+                 <property name="spacing">
+                  <number>3</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>8</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>5</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>5</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>5</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="snrTitleLabel">
+                   <property name="font">
+                    <font>
+                     <family>Source Sans Pro</family>
+                     <pointsize>-1</pointsize>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Rapport Signal/Bruit (SNR)</string>
+                   </property>
+                   <property name="class" stdset="0">
+                    <string>cardTitleLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="snrSubtitleLabel">
+                   <property name="styleSheet">
+                    <string notr="true"/>
+                   </property>
+                   <property name="text">
+                    <string>Visualisation en temps réel du SNR</string>
+                   </property>
+                   <property name="class" stdset="0">
+                    <string>dataLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QWidget" name="graphPlaceholder1" native="true">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout">
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QWidget" name="dataGrid_1" native="true">
+             <layout class="QGridLayout" name="gridLayout_3" columnstretch="0,0">
+              <property name="leftMargin">
+               <number>8</number>
+              </property>
+              <property name="spacing">
+               <number>10</number>
+              </property>
+              <item row="0" column="0">
+               <widget class="QFrame" name="actionsFrame">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::Shape::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Shadow::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_6">
+                 <property name="leftMargin">
+                  <number>20</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>13</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>20</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>20</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="actionsTitleLabel">
+                   <property name="font">
+                    <font>
+                     <family>Source Sans Pro</family>
+                     <pointsize>-1</pointsize>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true"/>
+                   </property>
+                   <property name="text">
+                    <string>Actions</string>
+                   </property>
+                   <property name="class" stdset="0">
+                    <string>cardTitleLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="actionsSubtitleLabel">
+                   <property name="styleSheet">
+                    <string notr="true"/>
+                   </property>
+                   <property name="text">
+                    <string>Contrôlez les paramètres du récepteur</string>
+                   </property>
+                   <property name="class" stdset="0">
+                    <string>dataLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="changeFreqLabel">
+                   <property name="font">
+                    <font>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Fréquence (MHz)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_4">
+                   <item>
+                    <widget class="QLineEdit" name="freqLineEdit">
+                     <property name="styleSheet">
+                      <string notr="true">
+#freqLineEdit { 
+	padding: 7px; 
+	font-family: Roboto; 
+	font-size: 14px; 
+	font-weight: 400; 
+	background: #DEE1E6; 
+	border-radius: 6px; 
+	border-width: 1px; 
+	border-color: #DEE1E6; 
+	border-style: solid; 
+	outline: none; 
+	border: none;
+}
+
+#freqLineEdit:hover {
+	color: #171A1F; 
+	background: #DEE1E6; 
+	border-color: #DEE1E6; 
+}
+
+#freqLineEdit:focused {
+	color: #171A1F; 
+	background: #DEE1E6; 
+	border-color: #DEE1E6; 
+}</string>
+                     </property>
+                     <property name="text">
+                      <string>146.520</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="changeFreqButton">
+                     <property name="cursor">
+                      <cursorShape>PointingHandCursor</cursorShape>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">                                        QPushButton {
+                                            background-color: #2577B1;
+                                            color: white;
+                                            border: none;
+                                            padding: 8px 16px;
+                                            border-radius: 6px;
+                                            font-weight: bold;
+  											font-family: Roboto; 
+  											font-size: 12px; 
+  											width: 115.203125px; 
+  											height: 18px; 
+											opacity: 1;
+                                        }
+                                        QPushButton:hover {
+											color: #FFFFFF;
+                                            background-color: #194F75;
+                                        }
+										QPushButton:hover:active {
+											color: #FFFFFF;
+                                            background-color: #10324B;
+                                        }
+                                    </string>
+                     </property>
+                     <property name="text">
+                      <string>Changer fréquence</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="squelchLevelLabel">
+                   <property name="font">
+                    <font>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Niveau Squelch</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_5">
+                   <item>
+                    <widget class="QLineEdit" name="squelchLineEdit">
+                     <property name="styleSheet">
+                      <string notr="true">#squelchLineEdit {
+	padding: 7px; 
+	font-family: Roboto; 
+	font-size: 14px; 
+	font-weight: 400; 
+	background: #DEE1E6; 
+	border-radius: 6px; 
+	border-width: 1px; 
+	border-color: #DEE1E6; 
+	border-style: solid; 
+	outline: none; 
+	border: none;
+}
+
+#squelchLineEdit:hover {
+	color: #171A1F; 
+	background: #DEE1E6; 
+	border-color: #DEE1E6; 
+}
+
+#squelchLineEdit:focused {
+	color: #171A1F; 
+	background: #DEE1E6; 
+	border-color: #DEE1E6; 
+}</string>
+                     </property>
+                     <property name="text">
+                      <string>5</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="adjustSquelchButton">
+                     <property name="cursor">
+                      <cursorShape>PointingHandCursor</cursorShape>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">                                        QPushButton {
+                                            background-color: #2577B1;
+                                            color: white;
+                                            border: none;
+                                            padding: 8px 16px;
+                                            border-radius: 6px;
+                                            font-weight: bold;
+  											font-family: Roboto; 
+  											font-size: 12px; 
+  											width: 95.203125px; 
+  											height: 18px; 
+											opacity: 1;
+                                        }
+                                        QPushButton:hover {
+											color: #FFFFFF;
+                                            background-color: #194F75;
+                                        }
+										QPushButton:hover:active {
+											color: #FFFFFF;
+                                            background-color: #10324B;
+                                        }
+                                    </string>
+                     </property>
+                     <property name="text">
+                      <string>Ajuster squelch</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QFrame" name="tmpFrame">
+                <property name="minimumSize">
+                 <size>
+                  <width>566</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::Shape::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Shadow::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0,1">
+                 <property name="spacing">
+                  <number>3</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>8</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>5</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>5</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>5</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="tmpTitleLabel">
+                   <property name="text">
+                    <string>Rapport Température Interne</string>
+                   </property>
+                   <property name="class" stdset="0">
+                    <string>cardTitleLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="tmpSubtitleLabel">
+                   <property name="text">
+                    <string>Visualisation en temps réel de Température</string>
+                   </property>
+                   <property name="class" stdset="0">
+                    <string>dataLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QWidget" name="graphPlaceholder2" native="true">
+                   <layout class="QVBoxLayout" name="verticalLayout_7">
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Policy::Preferred</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>10</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../assets/icons.qrc"/>
+ </resources>
+ <connections/>
+</ui>
