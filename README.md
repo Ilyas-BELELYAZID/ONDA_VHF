@@ -1,6 +1,6 @@
 <div align="center">
-<img src="https://github.com/Ilyas-BELELYAZID/ONDA_VHF/blob/master/assets/logo_onda_officiel.png" width="150"/>
-<h1>Application de Supervision des Équipements <abbr title="Very High Frequency">VHF</abbr></h1>
+<img src="https://raw.githubusercontent.com/Ilyas-BELELYAZID/ONDA_VHF/master/assets/logo_onda_officiel.png" width="200"/>
+<h1>Application de Supervision des Équipements Very High Frequency (VHF)</h1>
 <p>Une solution de monitoring et de configuration à distance pour les infrastructures de communication aéronautique.</p>
 <p><i>Projet réalisé dans le cadre d'un stage d'initiation au sein de l'Office National Des Aéroports (ONDA) - Aéroport Al Hoceima.</i></p>
 
@@ -14,10 +14,10 @@
 </div>
 
 # CONTEXTE DU PROJET
-> Ce projet s'inscrit dans une démarche de modernisation des outils de maintenance du **Service Technique Navigation** de l'aéroport d'Al Hoceima. Les communications <abbr title="Very High Frequency">VHF</abbr> entre la tour de contrôle et les aéronefs sont un pilier de la sécurité aérienne, reposant sur des équipements Telerad robustes mais dont la supervision est restée manuelle.  
+> Ce projet s'inscrit dans une démarche de modernisation des outils de maintenance du **Service Technique Navigation** de l'aéroport d'Al Hoceima. Les communications Very High Frequency (VHF) entre la tour de contrôle et les aéronefs sont un pilier de la sécurité aérienne, reposant sur des équipements Telerad robustes mais dont la supervision est restée manuelle.  
 
 ## La Problématique : De la Fiche Papier au Temps Réel
-> Jusqu'à présent, la vérification des paramètres critiques des équipements <abbr title="Very High Frequency">VHF</abbr> (température, puissance, ROS, etc.) s'effectuait physiquement dans la salle technique, avec un relevé manuel sur des fiches de contrôle.
+> Jusqu'à présent, la vérification des paramètres critiques des équipements Very High Frequency (VHF) (température, puissance, ROS, etc.) s'effectuait physiquement dans la salle technique, avec un relevé manuel sur des fiches de contrôle.
 **Cette méthode présentait plusieurs limitations :**
 
 - **Lenteur** : Un temps de réaction élevé en cas d'anomalie;
@@ -29,7 +29,7 @@
 ## La Solution : Une Supervision Centralisée et Intelligente
 > Cette application a été conçue pour répondre à ces enjeux en offrant une plateforme de supervision centralisée, temps réel et intelligente. Elle permet aux techniciens et ingénieurs de :
 
-- **Superviser** l'état de tous les équipements <abbr title="Very High Frequency">VHF</abbr> depuis un seul poste;
+- **Superviser** l'état de tous les équipements Very High Frequency (VHF) depuis un seul poste;
 
 - **Configurer** à distance les paramètres de fonctionnement;
 
@@ -79,17 +79,17 @@
 # FONCTIONNALITÉS CLÉS
 > L'application est structurée en plusieurs modules accessibles depuis un menu latéral :
 
-  - 📊 **Tableau de Bord Principal :** Vue d'ensemble de l'état du système, des alertes en cours et des indicateurs de performance clés (<abbr title="Key Performance Indicator">KPIs</abbr>);
+  - 📊 **Tableau de Bord Principal :** Vue d'ensemble de l'état du système, des alertes en cours et des indicateurs de performance clés (Key Performance Indicator (KPIs));
 
   - 📡 **Module Émetteur (Tx) :** Supervision et configuration des émetteurs Telerad EM9000;
 
-    - **Supervision :** Fréquence, Puissance (W), <abbr title="Rapport d'Ondes Stationnaires">ROS</abbr>, Température (°C), Taux de Modulation (%), Tension (V);
+    - **Supervision :** Fréquence, Puissance (W), Rapport Ondes Stationnaires (ROS), Température (°C), Taux de Modulation (%), Tension (V);
 
-    - **Configuration :** Modification de la fréquence, réglage de la puissance, Modifier <abbr title="Taux De Modulation">TDM</abbr>, activation/désactivation.
+    - **Configuration :** Modification de la fréquence, réglage de la puissance, Modifier Taux De Modulation (TDM), activation/désactivation.
 
   - 📻 **Module Récepteur (Rx) :** Supervision et configuration des récepteurs Telerad RE9000;
 
-    - **Supervision :** Fréquence, Température (°C), Tension (V), Puissance <abbr title="Basse Fréquence">BF</abbr> (dBm), Seuil et état du Squelch, Tension (V);
+    - **Supervision :** Fréquence, Température (°C), Tension (V), Puissance Basse Fréquece (BF) (dBm), Seuil et état du Squelch, Tension (V);
 
     - **Configuration :** Changement de fréquence, ajustement du Squelch.
 
@@ -102,7 +102,7 @@
   - 📈 **Historique & Rapports :** Consultation des événements passés avec des filtres (par date, type d'alerte, équipement) et exportation des données en format PDF/Excel.
 
 # ARCHITECTURE TECHNIQUE
-> L'application est construite sur le patron d'architecture **(**<abbr title="Modèle-Vue-Contrôleur">**MVC**</abbr>**)**, garantissant une séparation nette entre la logique métier, l'interface utilisateur et la gestion des données.
+> L'application est construite sur le patron d'architecture **(Modèle-Vue-Contrôleur (MVC))**, garantissant une séparation nette entre la logique métier, l'interface utilisateur et la gestion des données.
 
   - **Modèle (Model) :** Contient la logique métier, l'état des équipements, et gère la communication avec la base de données et les équipements via Modbus;
 
@@ -134,7 +134,7 @@ Suivez ces étapes pour lancer l'application en mode développement avec le simu
   2. **Installation**
 
             # 1. Cloner le dépôt du projet sur votre machine locale
-            git clone [https://votre-lien-vers-le-projet.git](https://votre-lien-vers-le-projet.git)
+            git clone [https://github.com/Ilyas-BELELYAZID/ONDA_VHF.git](https://github.com/Ilyas-BELELYAZID/ONDA_VHF.git)
             cd votre-projet
 
             # 2. Créer un environnement virtuel pour isoler les dépendances du projet
@@ -191,18 +191,10 @@ Suivez ces étapes pour lancer l'application en mode développement avec le simu
                 DB_USER=supervision_user
                 DB_PASSWORD=Onda@123
 
-                # --- Simulateur Modbus ---
-                SIMULATOR_HOST=localhost
-                SIMULATOR_PORT=5020
-
   5. **Lancement de l'Application**
   L'application fonctionne avec un simulateur Modbus pour permettre le développement sans matériel physique.
 
-            # 1. Dans un premier terminal (avec l'environnement virtuel activé),
-            # lancez le simulateur d'équipements. Il restera en attente de connexions.
-            python simulateur_modbus.py
-
-            # 2. Dans un second terminal (avec l'environnement virtuel également activé),
+            # Dans un terminal (avec l'environnement virtuel également activé),
             # lancez l'application principale.
             python main.py
 
@@ -211,7 +203,7 @@ Suivez ces étapes pour lancer l'application en mode développement avec le simu
 # AUTEUR
 **Ilyas BEL EL YAZID** - Étudiant Ingénieur en Transformation Digitale & Intelligence Artificielle.
 
-*Ce projet a été réalisé sous l'encadrement de M. Mohamed OUKHATTOU et M. Abdelmoula HAOUZI BAHI (<abbr title="Office National Des Aéroports">ONDA</abbr>).*
+*Ce projet a été réalisé sous l'encadrement de M. Mohamed OUKHATTOU et M. Abdelmoula HAOUZI BAHI (Office National Des Aéroports (ONDA)).*
 
 # Contact
 Pour toute question, n'hésitez pas à m'écrire à belelyazidilyas@gmail.com.
