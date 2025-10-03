@@ -43,37 +43,37 @@
   * *(Image inspirée de la maquette Page d'authentification.png)*
 
 <div align="center">
-<img src="https://github.com/Ilyas-BELELYAZID/ONDA_VHF/tree/master/pictures/Login_screen.png" alt="Aperçu de l'authentification de l'application"/>
+<img src="https://raw.githubusercontent.com/Ilyas-BELELYAZID/ONDA_VHF/master/pictures/Login_screen.png" alt="Aperçu de l'authentification de l'application"/>
 </div>
 
   * *(Image inspirée de la maquette ONDA - Dashboard.png)*
 
 <div align="center">
-<img src="https://github.com/Ilyas-BELELYAZID/ONDA_VHF/tree/master/pictures/Dashboard_screen.png" alt="Aperçu du Dashboard de l'application"/>
+<img src="https://raw.githubusercontent.com/Ilyas-BELELYAZID/ONDA_VHF/master/pictures/Dashboard_screen.png" alt="Aperçu du Dashboard de l'application"/>
 </div>
 
   * *(Image inspirée de la maquette ONDA - Emetteur.png)*
 
 <div align="center">
-<img src="https://github.com/Ilyas-BELELYAZID/ONDA_VHF/tree/master/pictures/Emetteur_screen.png" alt="Aperçu de l'Emetteur de l'application"/>
+<img src="https://raw.githubusercontent.com/Ilyas-BELELYAZID/ONDA_VHF/master/pictures/Emetteur_screen.png" alt="Aperçu de l'Emetteur de l'application"/>
 </div>
 
   * *(Image inspirée de la maquette ONDA - Récepteur VHF.png)*
 
 <div align="center">
-<img src="https://github.com/Ilyas-BELELYAZID/ONDA_VHF/tree/master/pictures/Récepteur_screen.png" alt="Aperçu du Récepteur de l'application"/>
+<img src="https://raw.githubusercontent.com/Ilyas-BELELYAZID/ONDA_VHF/master/pictures/Récepteur_screen.png" alt="Aperçu du Récepteur de l'application"/>
 </div>
 
   * *(Image inspirée de la maquette ONDA - Basculeur.png)*
 
 <div align="center">
-<img src="https://github.com/Ilyas-BELELYAZID/ONDA_VHF/tree/master/pictures/Basculeur_screen.png" alt="Aperçu du Basculeur de l'application"/>
+<img src="https://raw.githubusercontent.com/Ilyas-BELELYAZID/ONDA_VHF/master/pictures/Basculeur_screen.png" alt="Aperçu du Basculeur de l'application"/>
 </div>
 
   * *(Image inspirée de la maquette ONDA - Historique et Rapports.png)*
 
 <div align="center">
-<img src="https://github.com/Ilyas-BELELYAZID/ONDA_VHF/tree/master/pictures/Historique_screen.png" alt="Aperçu de l'Historique de l'application"/>
+<img src="https://raw.githubusercontent.com/Ilyas-BELELYAZID/ONDA_VHF/master/pictures/Historique_screen.png" alt="Aperçu de l'Historique de l'application"/>
 </div>
 
 # FONCTIONNALITÉS CLÉS
